@@ -1,0 +1,165 @@
+.container {
+    width: 900px;
+    height: 600px;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 0 0 0 0;
+}
+
+#errorMsg {
+    background-color: #a72828;
+    color: white;
+}
+
+#addUserOptions {
+    max-width: 300px;
+    max-height: 300px;
+    height: 100%;
+    width: 100%;
+    top: 20%;
+}
+
+#welcomeMsg h3 {
+    position: absolute;
+    left: 3%;
+    top: 20%;
+    transform: translate(-2%, -20%);
+    display: wrap;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
+#next-btn {
+    width: 10%;
+    height: 7%;
+    position: absolute;
+    top: 97%;
+    left: 98%;
+    transform: translate(-98%, -97%);
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#submit-btn {
+    height: 10%;
+    width: 30%;
+    margin-right: 0;
+    padding: 0;
+    left: 95%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-95%, -50%);
+    background-color: #28a745;
+}
+
+#nextCart-btn {
+    width: 10%;
+    height: 7%;
+    position: absolute;
+    top: 97%;
+    left: 98%;
+    transform: translate(-98%, -97%);
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#previous-btn {
+    width: 10%;
+    height: 7%;
+    position: absolute;
+    top: 97%;
+    left: 2%;
+    transform: translate(-2%, -97%);
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#displayTotal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border: 1px;
+    background-color: rgb(243, 243, 243);
+    padding: 14px 16px;
+}
+
+#previousProduct-btn {
+    width: 10%;
+    height: 7%;
+    position: absolute;
+    top: 97%;
+    left: 2%;
+    transform: translate(-2%, -97%);
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#addUserOptions {
+    left: 50%;
+    transform: translate(-50%);
+    top: 40%;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 900px;
+    max-width: 100%;
+    max-height: 100%;
+    height: 400px;
+}
+
+#Client {
+    width: 900px;
+    height: 500px;
+    padding: 14px 16px;
+    display: block;
+}
+
+#Products {
+    width: 900px;
+    height: 500px;
+    padding: 14px 16px;
+    display: none;
+}
+
+#Carts {
+    width: 900px;
+    height: 500px;
+    padding: 14px 16px;
+    display: none;
+}
+
+#tablink {
+    display: flex;
+}
+
+.form-control {
+    width: 25%;
+}
+
+#tablink button {
+    background-color: #555;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: -42%;
+    align-items: center;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
