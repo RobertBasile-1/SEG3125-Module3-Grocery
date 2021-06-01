@@ -1,8 +1,9 @@
 .container {
-    width: 900px;
-    height: 600px;
+    width: 1200px;
+    height: 499px;
     max-width: 100%;
     max-height: 100%;
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -12,17 +13,21 @@
     padding: 0 0 0 0;
 }
 
+#titleHeader {
+    height: 262px;
+    position: absolute;
+    width: 400px;
+    max-width: 100%;
+    max-height: 100%;
+    top: 10%;
+    left: 55%;
+    transform: translate(-55%, -50%);
+    display: flex;
+}
+
 #errorMsg {
     background-color: #a72828;
     color: white;
-}
-
-#addUserOptions {
-    max-width: 300px;
-    max-height: 300px;
-    height: 100%;
-    width: 100%;
-    top: 20%;
 }
 
 #welcomeMsg h3 {
@@ -30,14 +35,12 @@
     left: 3%;
     top: 20%;
     transform: translate(-2%, -20%);
-    display: wrap;
-    flex-wrap: wrap;
-    width: 300px;
+    width: 500px;
 }
 
 #next-btn {
-    width: 10%;
-    height: 7%;
+    width: 11%;
+    height: 9%;
     position: absolute;
     top: 97%;
     left: 98%;
@@ -47,20 +50,20 @@
 }
 
 #submit-btn {
-    height: 10%;
+    height: 11%;
     width: 30%;
     margin-right: 0;
     padding: 0;
-    left: 95%;
-    top: 50%;
+    left: 50%;
+    top: 97%;
     position: absolute;
-    transform: translate(-95%, -50%);
+    transform: translate(-50%, -97%);
     background-color: #28a745;
 }
 
 #nextCart-btn {
-    width: 10%;
-    height: 7%;
+    width: 11%;
+    height: 9%;
     position: absolute;
     top: 97%;
     left: 98%;
@@ -70,8 +73,8 @@
 }
 
 #previous-btn {
-    width: 10%;
-    height: 7%;
+    width: 11%;
+    height: 9%;
     position: absolute;
     top: 97%;
     left: 2%;
@@ -85,17 +88,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    width: 300px;
+    width: 500px;
     height: 400px;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border: 1px;
     background-color: rgb(243, 243, 243);
+}
+
+#itemsOnList {
+    position: relative;
     padding: 14px 16px;
 }
 
+#TotalLine {
+    border-top: 1px solid;
+    width: 450px;
+    position: fixed;
+    top: 80%;
+    left: 6%;
+}
+
 #previousProduct-btn {
-    width: 10%;
-    height: 7%;
+    width: 11%;
+    height: 9%;
     position: absolute;
     top: 97%;
     left: 2%;
@@ -106,14 +120,15 @@
 
 #addUserOptions {
     left: 50%;
-    transform: translate(-50%);
-    top: 40%;
+    transform: translate(-50%, -60%);
+    top: 60%;
     overflow: auto;
     overflow-x: hidden;
-    width: 900px;
+    position: absolute;
+    width: 850px;
     max-width: 100%;
     max-height: 100%;
-    height: 400px;
+    height: 250px;
 }
 
 #Client {
@@ -128,6 +143,7 @@
     height: 500px;
     padding: 14px 16px;
     display: none;
+    overflow-y: visible;
 }
 
 #Carts {
@@ -138,7 +154,8 @@
 }
 
 #tablink {
-    display: flex;
+    display: block;
+    margin-right: 0;
 }
 
 .form-control {
@@ -154,12 +171,58 @@
     padding: 14px 16px;
     font-size: 17px;
     width: 300px;
-    height: 100px;
+    height: 166.6px;
     position: relative;
-    top: -42%;
+    top: -0%;
     align-items: center;
+    display: block;
+    margin-right: 0;
+}
+
+#tablink i {
+    top: -23%;
 }
 
 .tablink:hover {
     background-color: #777;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.gg-chevron-double-down::before {
+    margin-top: 10%;
+}
+
+#pickup-btn {
+    top: 88%;
+    left: 95%;
+    width: 15%;
+    height: 15%;
+    transform: translate(-87%, -90%);
+    position: absolute;
+}
+
+#pickup-btn {
+    top: 90%;
+    left: 95%;
+    width: 15%;
+    height: 15%;
+    transform: translate(-95%, -90%);
+    position: absolute;
+}
+
+#delivery-btn {
+    top: 70%;
+    left: 95%;
+    width: 15%;
+    height: 15%;
+    transform: translate(-95%, -70%);
+    position: absolute;
+}
+
+.btn btn-outline-success {
+    background-color: #28a745;
 }

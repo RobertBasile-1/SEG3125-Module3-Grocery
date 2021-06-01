@@ -95,9 +95,8 @@ var products = [{
 var nextBtn = document.getElementById("next-btn");
 var checkedItems = document.getElementById("categorie");
 var budgetStatus = [];
-budgetStatus.push(document.getElementById("btnradio1"));
-budgetStatus.push(document.getElementById("btnradio2"));
-budgetStatus.push(document.getElementById("btnradio3"));
+budgetStatus.push(document.getElementById("budgetList"));
+
 
 /*Credited: https://www.w3schools.com*/
 function openTab(groceryTab, animName) {
@@ -115,54 +114,63 @@ function sortByPrice(newList) {
     });
 }
 
+
+
 function assesUserInformation() {
     let listItems = [];
     var userInfo = [];
 
-    var category = document.getElementById("categorie");
-
-    //Check the budgetary status of the client
-    for (var j = 0; j < budgetStatus.length; j++) {
-        if (budgetStatus[j].checked) {
-            userInfo.push(budgetStatus[j].id);
-        }
-    }
-    if (category.value == "None") {
-        listItems = products;
-    } else if (category.value == "nutFree") {
-        listItems = products.filter((products) => { return products.nutFree; });
-    } else if (category.value == "lactoseFree") {
-        listItems = products.filter((products) => { return products.lactoseFree; });
-    } else if (category.value == "lactoseAndNut") {
-        listItems = products.filter((products) => { return (products.lactoseFree && products.nutFree); });
-    }
-
+    var nutFree = document.getElementById("inlineCheckbox1");
+    var lactoseFree = document.getElementById("inlineCheckbox2");
     var isOrganic = document.getElementById("organicProducts");
     var nonOrganic = document.getElementById("nonOrganicProduct");
     var neither = document.getElementById("neither");
+    var budget = document.getElementById("budgetList");
+
+
+
+    //Check the budgetary status of the client
+
+
+    // for (var j = 0; j < budgetStatus.length; j++) {
+    //     if (budgetStatus[j].value == ) {
+    //         userInfo.push(budgetStatus[j].id);
+    //     }
+    // }
+
+    if (nutFree.checked && !lactoseFree.checked) {
+        listItems = products.filter((products) => { return (products.nutFree); });
+    } else if (!nutFree.checked && lactoseFree.checked) {
+        listItems = products.filter((products) => { return (products.lactoseFree); });
+    } else if (nutFree.checked && lactoseFree.checked) {
+        listItems = products.filter((products) => { return (products.lactoseFree && products.nutFree); });
+    } else if (!nutFree.checked && !lactoseFree.checked) {
+        listItems = products;
+    }
 
     let newList;
-    if (!(isOrganic.checked || nonOrganic.checked) && userInfo.includes("btnradio1")) {
+
+    if (!(isOrganic.checked || nonOrganic.checked) && budget.value == "small") {
         newList = listItems.filter((listItems) => { return listItems.budget === "small"; });
         sortByPrice(newList);
         return newList;
-    } else if (!(isOrganic.checked || nonOrganic.checked) && userInfo.includes("btnradio2")) {
+    } else if (!(isOrganic.checked || nonOrganic.checked) && budget.value == "medium") {
         newList = listItems.filter((listItems) => { return listItems.budget === "medium"; });
         sortByPrice(newList);
         return newList;
-    } else if (!(isOrganic.checked || nonOrganic.checked) && userInfo.includes("btnradio3")) {
+    } else if (!(isOrganic.checked || nonOrganic.checked) && budget.value == "high") {
         newList = listItems.filter((listItems) => { return listItems.budget === "high"; });
         sortByPrice(newList);
         return newList;
-    } else if (isOrganic.checked && userInfo.includes("btnradio1")) {
+    } else if (isOrganic.checked && budget.value == "small") {
         newList = listItems.filter((listItems) => { return listItems.organicProducts && listItems.budget === "small"; });
         sortByPrice(newList);
         return newList;
-    } else if (isOrganic.checked && userInfo.includes("btnradio2")) {
+    } else if (isOrganic.checked && budget.value == "medium") {
         newList = listItems.filter((listItems) => { return listItems.organicProducts && listItems.budget === "medium"; });
         sortByPrice(newList);
         return newList;
-    } else if (isOrganic.checked && userInfo.includes("btnradio3")) {
+    } else if (isOrganic.checked && budget.value == "high") {
         newList = listItems.filter((listItems) => { return listItems.organicProducts && listItems.budget === "high"; });
         sortByPrice(newList);
         return newList;
@@ -170,15 +178,15 @@ function assesUserInformation() {
         newList = listItems.filter((listItems) => { return listItems.organicProducts; });
         sortByPrice(newList);
         return newList;
-    } else if (nonOrganic.checked && userInfo.includes("btnradio1")) {
+    } else if (nonOrganic.checked && budget.value == "small") {
         newList = listItems.filter((listItems) => { return listItems.nonOrganicProduct && listItems.budget === "small"; });
         sortByPrice(newList);
         return newList;
-    } else if (nonOrganic.checked && userInfo.includes("btnradio2")) {
+    } else if (nonOrganic.checked && budget.value == "medium") {
         newList = listItems.filter((listItems) => { return listItems.nonOrganicProduct && listItems.budget === "medium"; });
         sortByPrice(newList);
         return newList;
-    } else if (nonOrganic.checked && userInfo.includes("btnradio3")) {
+    } else if (nonOrganic.checked && budget.value == "high") {
         newList = listItems.filter((listItems) => { return listItems.nonOrganicProduct && listItems.budget === "high"; });
         sortByPrice(newList);
         return newList;
@@ -186,15 +194,15 @@ function assesUserInformation() {
         newList = listItems.filter((listItems) => { return listItems.nonOrganicProduct; });
         sortByPrice(newList);
         return newList;
-    } else if (neither.checked && userInfo.includes("btnradio1")) {
-        newList = listItems.filter((listItems) => { return listItems.budget === "small"; });
+    } else if (neither.checked && budget.value == "none") {
+        newList = listItems;
         sortByPrice(newList);
         return newList;
-    } else if (neither.checked && userInfo.includes("btnradio2")) {
+    } else if (neither.checked && budget.value == "Medium") {
         newList = listItems.filter((listItems) => { return listItems.budget === "medium"; });
         sortByPrice(newList);
         return newList;
-    } else if (neither.checked && userInfo.includes("btnradio3")) {
+    } else if (neither.checked && budget.value == "High") {
         newList = listItems.filter((listItems) => { return listItems.budget === "high"; });
         sortByPrice(newList);
         return newList;
@@ -214,8 +222,7 @@ function displayListItems(options) {
 
 
     s2.className = "list-group";
-    s2.style.width = "30%";
-    s2.style.left = "50%";
+
     s2.innerHTML = "";
 
     if (userItems.length == 0) {
@@ -225,7 +232,7 @@ function displayListItems(options) {
     document.getElementById("submit-btn").style.display = "none";
 
 
-    if (document.getElementById("categorie").value !== '' && document.getElementById("firstNameInput").value !== '') {
+    if (document.getElementById("firstNameInput").value !== '') {
 
         document.getElementById("welcomeMsg").innerHTML =
             "<h3>Hello" + " " + document.getElementById("firstNameInput").value + "! Here are your targeted prodcuts!" + "</h3>";
@@ -254,6 +261,7 @@ function displayListItems(options) {
         }
 
         document.getElementById("submit-btn").addEventListener("click", function() {
+
             successCheck();
         });
 
@@ -285,10 +293,7 @@ function successCheck() {
 
 function errCheck() {
     document.getElementById("errorList").innerHTML = "";
-    if (document.getElementById("categorie").value === '' && document.getElementById("firstNameInput").value === '' ||
-        document.getElementById("categorie").value !== '' && document.getElementById("firstNameInput").value === '' ||
-        document.getElementById("categorie").value === '' && document.getElementById("firstNameInput").value !== ''
-    ) {
+    if (document.getElementById("firstNameInput").value == "") {
         var err = document.createElement("div");
         err.id = "errorMsg";
         err.className = "alert alert-danger";
@@ -305,11 +310,15 @@ function selectedItems() {
     var ele = document.getElementsByClassName("form-check-input me-1");
     var chosenProducts = [];
 
-    var c = document.getElementById("displayTotal");
+    var c = document.getElementById("itemsOnList");
+    var d = document.getElementById("TotalLine");
     c.innerHTML = "";
 
     // build list of selected item
     var para = document.createElement("P");
+    var listPrice = document.createElement("P");
+    var total = document.createElement("P");
+    total.style = "display:inline";
 
     para.innerHTML = "<h3 style='display: block;'>You selected : </h3>";
     para.appendChild(document.createElement("br"));
@@ -323,8 +332,9 @@ function selectedItems() {
 
     // add paragraph and total price
     c.appendChild(para);
-    c.appendChild(document.createTextNode("Total :" + getTotalPrice(chosenProducts)));
-
+    total.innerHTML = "Total: ";
+    total.appendChild(document.createTextNode(getTotalPrice(chosenProducts)));
+    d.appendChild(total);
 }
 
 function getTotalPrice(chosenProducts) {
@@ -336,3 +346,12 @@ function getTotalPrice(chosenProducts) {
     }
     return totalPrice;
 }
+
+document.getElementById("pickup-btn").addEventListener("click", function() {
+    alert("Thank you for shopping at RobShop see you shortly!");
+});
+
+
+document.getElementById("delivery-btn").addEventListener("click", function() {
+    alert("Thank you for shopping at RobShop we will contact you shortly for additional information!");
+});
