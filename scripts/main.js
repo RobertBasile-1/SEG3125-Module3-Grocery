@@ -1,5 +1,5 @@
 var products = [{
-        name: "brocoli $1.99",
+        name: "Brocoli $1.99",
         nutFree: true,
         lactoseFree: true,
         organicProducts: true,
@@ -8,7 +8,7 @@ var products = [{
         price: 1.99,
     },
     {
-        name: "bread $2.35",
+        name: "Bread $2.35",
         nutFree: true,
         lactoseFree: true,
         organicProducts: true,
@@ -17,7 +17,7 @@ var products = [{
         price: 2.35,
     },
     {
-        name: "oreo cookies $4.99",
+        name: "Oreo cookies $4.99",
         nutFree: true,
         lactoseFree: false,
         organicProducts: false,
@@ -26,7 +26,7 @@ var products = [{
         price: 4.99,
     },
     {
-        name: "ramen $0.99",
+        name: "Ramen $0.99",
         nutFree: true,
         lactoseFree: true,
         organicProducts: false,
@@ -35,7 +35,7 @@ var products = [{
         price: 0.99,
     },
     {
-        name: "salted peanuts $5.00",
+        name: "Salted peanuts $5.00",
         nutFree: false,
         lactoseFree: true,
         organicProducts: false,
@@ -44,7 +44,7 @@ var products = [{
         price: 5.0,
     },
     {
-        name: "cheese sticks $7.00",
+        name: "Cheese sticks $7.00",
         nutFree: false,
         lactoseFree: false,
         organicProducts: false,
@@ -53,7 +53,7 @@ var products = [{
         price: 7.0,
     },
     {
-        name: "almond granola $12.00",
+        name: "Almond granola $12.00",
 
         nutFree: false,
         lactoseFree: true,
@@ -63,7 +63,7 @@ var products = [{
         price: 12.00,
     },
     {
-        name: "yogurt $6.00",
+        name: "Yogurt $6.00",
         nutFree: true,
         lactoseFree: false,
         organicProducts: false,
@@ -72,7 +72,7 @@ var products = [{
         price: 6.0,
     },
     {
-        name: "salmon $10.00",
+        name: "Salmon $10.00",
         nutFree: true,
         lactoseFree: true,
         organicProducts: true,
@@ -81,7 +81,7 @@ var products = [{
         price: 10.0,
     },
     {
-        name: "steak $18.99",
+        name: "Steak $18.99",
         nutFree: true,
         lactoseFree: true,
         organicProducts: true,
@@ -278,7 +278,18 @@ nextBtn.addEventListener("click", function() {
 });
 
 function successCheck() {
+
+
     document.getElementById("successList").innerHTML = "";
+    var loading = document.createElement("div");
+    loading.className = "spinner-border text-primary";
+    loading.role = "status";
+    loading.style.display = "none";
+
+    loading.style.left = "50%";
+    loading.style.position = "absolute";
+
+
 
     var banner = document.createElement("div");
     banner.className = "alert alert-success";
@@ -287,8 +298,28 @@ function successCheck() {
     banner.role = "alert";
     banner.innerHTML = "Items successfully added to your cart!"
     banner.style.display = "flex";
-    document.getElementById("successList").appendChild(banner);
 
+
+    document.getElementById("successList").appendChild(loading);
+    showThing(loading, banner);
+
+
+}
+
+function showThing(loading, banner) {
+
+    loading.style.display = "block";
+    setTimeout(() => {
+        removeThing(loading)
+        document.getElementById("successList").appendChild(banner);
+    }, 1000);
+
+
+}
+
+// and `removeThing` removes the spinner
+function removeThing(loading) {
+    loading.style.display = 'none';
 }
 
 function errCheck() {
