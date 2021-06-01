@@ -299,20 +299,23 @@ function successCheck() {
     banner.innerHTML = "Items successfully added to your cart!"
     banner.style.display = "flex";
 
-
+    document.getElementById("submit-btn").disabled = true;
     document.getElementById("successList").appendChild(loading);
     showThing(loading, banner);
+
 
 
 }
 
 function showThing(loading, banner) {
-
     loading.style.display = "block";
     setTimeout(() => {
         removeThing(loading)
         document.getElementById("successList").appendChild(banner);
+        document.getElementById("submit-btn").disabled = false;
     }, 1000);
+
+
 
 
 }
