@@ -1,11 +1,12 @@
 var products = [{
-        name: "Brocoli $1.99",
+        name: "Broccoli $1.99",
         nutFree: true,
         lactoseFree: true,
         organicProducts: true,
         nonOrganicProduct: false,
         budget: "small",
         price: 1.99,
+        imageSrc: "assets/broccoli.jpg"
     },
     {
         name: "Bread $2.35",
@@ -15,6 +16,7 @@ var products = [{
         nonOrganicProduct: false,
         budget: "small",
         price: 2.35,
+        imageSrc: "assets/bread.jpg"
     },
     {
         name: "Oreo cookies $4.99",
@@ -24,6 +26,8 @@ var products = [{
         nonOrganicProduct: true,
         budget: "small",
         price: 4.99,
+        imageSrc: "assets/oreo.jpg"
+
     },
     {
         name: "Ramen $0.99",
@@ -33,6 +37,7 @@ var products = [{
         nonOrganicProduct: true,
         budget: "small",
         price: 0.99,
+        imageSrc: "assets/ramen.jpg"
     },
     {
         name: "Salted peanuts $5.00",
@@ -42,6 +47,7 @@ var products = [{
         nonOrganicProduct: true,
         budget: "medium",
         price: 5.0,
+        imageSrc: "assets/peanuts.jpg"
     },
     {
         name: "Cheese sticks $7.00",
@@ -51,16 +57,17 @@ var products = [{
         nonOrganicProduct: true,
         budget: "medium",
         price: 7.0,
+        imageSrc: "assets/cheeseSticks.jpg"
     },
     {
         name: "Almond granola $12.00",
-
         nutFree: false,
         lactoseFree: true,
         organicProducts: true,
         nonOrganicProduct: false,
         budget: "high",
         price: 12.00,
+        imageSrc: "assets/almondGranola.jpg"
     },
     {
         name: "Yogurt $6.00",
@@ -70,6 +77,7 @@ var products = [{
         nonOrganicProduct: true,
         budget: "medium",
         price: 6.0,
+        imageSrc: "assets/yogurt.jpg"
     },
     {
         name: "Salmon $10.00",
@@ -79,6 +87,7 @@ var products = [{
         nonOrganicProduct: false,
         budget: "high",
         price: 10.0,
+        imageSrc: "assets/salmon.jpg"
     },
     {
         name: "Steak $18.99",
@@ -88,6 +97,7 @@ var products = [{
         nonOrganicProduct: false,
         budget: "high",
         price: 18.99,
+        imageSrc: "assets/steak.jpg"
     },
 ];
 
@@ -233,6 +243,10 @@ function displayListItems(options) {
         document.getElementById("submit-btn").style.display = "block";
         for (var i = 0; i < userItems.length; i++) {
 
+
+            var picture = document.createElement("img");
+            picture.className = "pictures";
+            picture.src = userItems[i].imageSrc;
             var productName = userItems[i].name;
             // create the checkbox and add in HTML DOM
             var checkbox = document.createElement("input");
@@ -250,6 +264,8 @@ function displayListItems(options) {
             label.htmlFor = productName;
             label.appendChild(checkbox);
             label.appendChild(document.createTextNode(productName));
+            label.appendChild(document.createElement("br"));
+            label.appendChild(picture);
             s2.appendChild(label);
         }
 

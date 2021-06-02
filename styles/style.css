@@ -226,3 +226,8 @@
 .btn btn-outline-success {
     background-color: #28a745;
 }
+
+.pictures {
+    width: 100px;
+    height: 100px;
+}
