@@ -129,14 +129,6 @@ function assesUserInformation() {
 
 
 
-    //Check the budgetary status of the client
-
-
-    // for (var j = 0; j < budgetStatus.length; j++) {
-    //     if (budgetStatus[j].value == ) {
-    //         userInfo.push(budgetStatus[j].id);
-    //     }
-    // }
 
     if (nutFree.checked && !lactoseFree.checked) {
         listItems = products.filter((products) => { return (products.nutFree); });
@@ -225,6 +217,7 @@ function displayListItems(options) {
 
     s2.innerHTML = "";
 
+
     if (userItems.length == 0) {
         s2.innerHTML = "NO ITEM FOUND!";
     }
@@ -261,7 +254,6 @@ function displayListItems(options) {
         }
 
         document.getElementById("submit-btn").addEventListener("click", function() {
-
             successCheck();
         });
 
@@ -277,52 +269,41 @@ nextBtn.addEventListener("click", function() {
     errCheck();
 });
 
+
+
 function successCheck() {
 
 
-    document.getElementById("successList").innerHTML = "";
     var loading = document.createElement("div");
     loading.className = "spinner-border text-primary";
     loading.role = "status";
-    loading.style.display = "none";
-
+    loading.style.display = "block";
     loading.style.left = "50%";
     loading.style.position = "absolute";
 
-
-
-    var banner = document.createElement("div");
-    banner.className = "alert alert-success";
-    banner.style.backgroundColor = "#28a745";
-    banner.style.color = "white";
-    banner.role = "alert";
-    banner.innerHTML = "Items successfully added to your cart!"
-    banner.style.display = "flex";
-
     document.getElementById("submit-btn").disabled = true;
     document.getElementById("successList").appendChild(loading);
-    showThing(loading, banner);
-
-
+    showThing(loading);
 
 }
 
-function showThing(loading, banner) {
+function showThing(loading) {
     loading.style.display = "block";
     setTimeout(() => {
-        removeThing(loading)
-        document.getElementById("successList").appendChild(banner);
+        removeThing(loading);
         document.getElementById("submit-btn").disabled = false;
+        document.getElementById("banner").style.display = 'block';
     }, 1000);
 
-
-
-
+    setTimeout(() => {
+        document.getElementById("banner").style.display = 'none';
+    }, 2000);
 }
 
 // and `removeThing` removes the spinner
 function removeThing(loading) {
     loading.style.display = 'none';
+
 }
 
 function errCheck() {
@@ -347,12 +328,15 @@ function selectedItems() {
     var c = document.getElementById("itemsOnList");
     var d = document.getElementById("TotalLine");
     c.innerHTML = "";
+    d.innerHTML = "";
+
 
     // build list of selected item
     var para = document.createElement("P");
     var listPrice = document.createElement("P");
     var total = document.createElement("P");
     total.style = "display:inline";
+    total.innerHTML = "";
 
     para.innerHTML = "<h3 style='display: block;'>You selected : </h3>";
     para.appendChild(document.createElement("br"));
@@ -366,7 +350,7 @@ function selectedItems() {
 
     // add paragraph and total price
     c.appendChild(para);
-    total.innerHTML = "Total: ";
+    total.appendChild(document.createTextNode("Total: "));
     total.appendChild(document.createTextNode(getTotalPrice(chosenProducts)));
     d.appendChild(total);
 }
