@@ -19,7 +19,7 @@ var products = [{
         imageSrc: "assets/bread.jpg"
     },
     {
-        name: "Oreo cookies $4.99",
+        name: "Cookies $4.99",
         nutFree: true,
         lactoseFree: false,
         organicProducts: false,
@@ -40,7 +40,7 @@ var products = [{
         imageSrc: "assets/ramen.jpg"
     },
     {
-        name: "Salted peanuts $5.00",
+        name: "Peanuts $5.00",
         nutFree: false,
         lactoseFree: true,
         organicProducts: false,
@@ -50,7 +50,7 @@ var products = [{
         imageSrc: "assets/peanuts.jpg"
     },
     {
-        name: "Cheese sticks $7.00",
+        name: "Cheese $7.00",
         nutFree: false,
         lactoseFree: false,
         organicProducts: false,
@@ -60,7 +60,7 @@ var products = [{
         imageSrc: "assets/cheeseSticks.jpg"
     },
     {
-        name: "Almond granola $12.00",
+        name: "Granola $12.00",
         nutFree: false,
         lactoseFree: true,
         organicProducts: true,
@@ -342,33 +342,57 @@ function selectedItems() {
     var chosenProducts = [];
 
     var c = document.getElementById("itemsOnList");
-    var d = document.getElementById("TotalLine");
-    c.innerHTML = "";
-    d.innerHTML = "";
-
-
-    // build list of selected item
+    var listNames = document.getElementById("listNames");
+    var listPrices = document.getElementById("listPrices");
+    var f = document.getElementById("totalPrice");
     var para = document.createElement("P");
-    var listPrice = document.createElement("P");
+    var multipleDiv = document.createElement("div");
+    var diffDiv = document.createElement("div");
     var total = document.createElement("P");
-    total.style = "display:inline";
+    total.style = "display:flex;justify-content:space-between";
+    c.style.display = "block";
+    para.style.justifyContent = "space-between";
+
+    f.innerHTML = "";
+    c.innerHTML = "";
     total.innerHTML = "";
 
+    multipleDiv.style.tabSize = "8";
+
+
     para.innerHTML = "<h3 style='display: block;'>You selected : </h3>";
+    para.style.fontSize = "16px";
     para.appendChild(document.createElement("br"));
+
     for (i = 0; i < ele.length; i++) {
         if (ele[i].checked) {
+
             para.appendChild(document.createTextNode(ele[i].value));
             para.appendChild(document.createElement("br"));
             chosenProducts.push(ele[i].value);
+
+            // para.appendChild(document.createTextNode(ele[i].value))
+            // multipleDiv.appendChild(para);
+            // multipleDiv.appendChild(document.createElement("br"));
+            // // multipleDiv.appendChild(document.createTextNode(ele[i].value.substring(0, ele[i].value.indexOf(' '))));
+            // listNames.appendChild(multipleDiv);
+            // // diffDiv.appendChild(document.createTextNode(ele[i].value.substring(ele[i].value.indexOf(' ') + 1, ele[i].value.length)));
+            // // listPrices.appendChild(diffDiv);
+            // listNames.appendChild(document.createElement("br"));
+            // // listNames.appendChild(listPrices);
+
+            chosenProducts.push(ele[i].value);
+
         }
     }
 
-    // add paragraph and total price
     c.appendChild(para);
-    total.appendChild(document.createTextNode("Total: "));
-    total.appendChild(document.createTextNode(getTotalPrice(chosenProducts)));
-    d.appendChild(total);
+    //c.appendChild(listPrices);
+
+
+
+    f.appendChild(document.createTextNode("$" + getTotalPrice(chosenProducts)));
+
 }
 
 function getTotalPrice(chosenProducts) {

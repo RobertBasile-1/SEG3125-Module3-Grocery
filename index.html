@@ -45,7 +45,7 @@
             <fieldset class="row mb-2 inline" style="border:none;margin:0;padding: 0; ">
                 <legend style=" padding: 0px;font-weight:bold;font-size: 16px; font-family: Helvetica, sans-serif;" class="col-form-label pt-0"> Based on the following options chose the options that will meet your needs.
                 </legend>
-                <p style="font-family: Helvetica, sans-serif; margin-bottom:5px;padding:0px;color: red;">*If none checked suggests there is no preference</p>
+                <p style="font-family: Helvetica, sans-serif; margin-bottom:5px;padding:0px;color: blue;">*Optional</p>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onchange="displayListItems('addUserOptions')">
@@ -135,15 +135,20 @@
 
 
         <div id="Carts" class="tab w3-animate-top">
-            <h3 style="font-family: Helvetica, sans-serif;">Cart</h3>
+            <h3 style="font-family: Helvetica, sans-serif;">Here is your cart</h3>
             <div id="displayTotal">
+
                 <div id="itemsOnList">
-                    <div id="listPrices" style="display:block;"></div>
+                    <div id="listNames">
+                        <div id="listPrices" style="display:block;"></div>
+                    </div>
                 </div>
 
                 <div id="TotalLine">
-
+                    <div style="font-size:32px;">Total:</div>
+                    <div id="totalPrice" style="font-size:32px;"></div>
                 </div>
+
             </div>
 
             <button type="button" id="delivery-btn" class="btn btn-outline-success">Delivery</button>
