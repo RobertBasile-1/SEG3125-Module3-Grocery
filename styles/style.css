@@ -38,17 +38,6 @@
     width: 500px;
 }
 
-#next-btn {
-    width: 11%;
-    height: 9%;
-    position: absolute;
-    top: 97%;
-    left: 98%;
-    transform: translate(-98%, -97%);
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
-}
-
 #submit-btn {
     height: 11%;
     width: 30%;
@@ -60,29 +49,9 @@
     transform: translate(-50%, -97%);
     background-color: #28a745;
 }
-
-#nextCart-btn {
-    width: 11%;
-    height: 9%;
-    position: absolute;
-    top: 97%;
-    left: 98%;
-    transform: translate(-98%, -97%);
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
+#firstNameInput{
+    width: 15rem;
 }
-
-#previous-btn {
-    width: 11%;
-    height: 9%;
-    position: absolute;
-    top: 97%;
-    left: 2%;
-    transform: translate(-2%, -97%);
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
-}
-
 #displayTotal {
     top: 30%;
     left: 50%;
